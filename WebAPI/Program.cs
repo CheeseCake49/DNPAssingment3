@@ -5,7 +5,6 @@ using Application.LogicInterfaces;
 using EFC;
 using EFC.DAOs;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Shared.Auth;
 using WebAPI.Services;
