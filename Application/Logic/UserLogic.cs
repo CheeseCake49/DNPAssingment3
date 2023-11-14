@@ -26,6 +26,11 @@ public class UserLogic : IUserLogic
         return await _userDao.CreateAsync(toCreate);
     }
 
+    public async Task<IEnumerable<User>> GetAllUsersAsync()
+    {
+        return await _userDao.GetAllUsersAsync();
+    }
+
     private static void ValidateData(DTOs.UserCreationDTO userToCreate)
     {
         string username = userToCreate.Username;

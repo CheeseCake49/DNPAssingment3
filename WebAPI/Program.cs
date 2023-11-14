@@ -22,6 +22,7 @@ builder.Services.AddScoped<IUserDao, UserEFCDao>();
 builder.Services.AddScoped<IUserLogic, UserLogic>();
 builder.Services.AddScoped<IPostDao, PostEFCDao>();
 builder.Services.AddScoped<IPostLogic, PostLogic>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 AuthorizationPolicies.AddPolicies(builder.Services);
 
@@ -38,9 +39,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
     };
 });
-
-builder.Services.AddScoped<IAuthService, AuthService>();
-
 
 var app = builder.Build();
 

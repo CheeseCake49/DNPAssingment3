@@ -32,4 +32,9 @@ public class UserController : ControllerBase
         }
     }
 
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<User>>> GetUsersAsync()
+    {
+        return Ok(await _userLogic.GetAllUsersAsync());
+    }
 }

@@ -28,4 +28,9 @@ public class UserEFCDao : IUserDao
             u.Username.ToLower().Equals(username.ToLower()));
         return existing;
     }
+
+    public async Task<IEnumerable<User>> GetAllUsersAsync()
+    {
+        return _context.Users;
+    }
 }
