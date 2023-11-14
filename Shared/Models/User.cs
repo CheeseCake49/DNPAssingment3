@@ -1,4 +1,6 @@
-﻿namespace Shared.Models;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Shared.Models;
 
 public class User
 {
@@ -11,5 +13,7 @@ public class User
         Username = username;
         Password = password;
     }
-    
+
+    private User(){}
+
 }

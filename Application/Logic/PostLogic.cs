@@ -24,7 +24,7 @@ public class PostLogic : IPostLogic
             throw new Exception($"User with username {postToCreate.OwnerUsername} was not found.");
 
         ValidateData(postToCreate);
-        Post post = new Post(postToCreate.Title, postToCreate.Body, user);
+        Post post = new Post(postToCreate.Title, postToCreate.Body, user.Username);
         return await _postDao.CreateAsync(post);
     }
 

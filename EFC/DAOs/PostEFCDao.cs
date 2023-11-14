@@ -1,22 +1,35 @@
 ﻿using Application.DaoInterfaces;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Shared.Models;
 
 namespace EFC.DAOs;
 
 public class PostEFCDao : IPostDao
 {
-    public Task<Post> CreateAsync(Post post)
+
+    private readonly DataContext _context;
+
+    public PostEFCDao(DataContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
+    }
+    
+    public async Task<Post> CreateAsync(Post post)
+    {
+        EntityEntry<Post> newPost = await _context.Posts.AddAsync(post);
+        await _context.SaveChangesAsync();
+        return newPost.Entity;
     }
 
-    public Task<IEnumerable<Post>> GetAllPostsAsync()
+    public async Task<IEnumerable<Post>> GetAllPostsAsync()
     {
-        throw new NotImplementedException();
+        return _context.Posts;
     }
 
-    public Task<Post> GetByIdAsync(int Id)
+    public async Task<Post> GetByIdAsync(int Id)
     {
-        throw new NotImplementedException();
+        IEnumerable<Post> posts = _context.Posts;
+        return posts.First(post => post.Id == Id);
     }
 }
