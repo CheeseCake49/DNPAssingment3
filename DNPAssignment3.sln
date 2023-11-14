@@ -8,6 +8,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{01F10C25-711A-4A3B-9E15-8395DCCB6B87}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWasm", "BlazorWasm\BlazorWasm.csproj", "{5EE25A7F-4EB5-481B-9C69-01E473EAF22F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpClient", "HttpClient\HttpClient.csproj", "{B3BD9BC1-0C94-468D-BCC6-D5D18D71124E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +34,13 @@ Global
 		{01F10C25-711A-4A3B-9E15-8395DCCB6B87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01F10C25-711A-4A3B-9E15-8395DCCB6B87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01F10C25-711A-4A3B-9E15-8395DCCB6B87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EE25A7F-4EB5-481B-9C69-01E473EAF22F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EE25A7F-4EB5-481B-9C69-01E473EAF22F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EE25A7F-4EB5-481B-9C69-01E473EAF22F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EE25A7F-4EB5-481B-9C69-01E473EAF22F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3BD9BC1-0C94-468D-BCC6-D5D18D71124E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3BD9BC1-0C94-468D-BCC6-D5D18D71124E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3BD9BC1-0C94-468D-BCC6-D5D18D71124E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3BD9BC1-0C94-468D-BCC6-D5D18D71124E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

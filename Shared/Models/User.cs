@@ -14,6 +14,7 @@ public class User
         Password = password;
     }
 
-    private User(){}
-
+    public User()
+    {
+    }
 }
