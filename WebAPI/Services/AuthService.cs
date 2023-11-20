@@ -1,22 +1,22 @@
 using System.ComponentModel.DataAnnotations;
+using Application.DaoInterfaces;
 using Shared.Models;
 
 namespace WebAPI.Services;
 
 public class AuthService : IAuthService
 {
+    private readonly IUserDao _userDao;
+    private IEnumerable<User> users;
 
-    private readonly IList<User> users = new List<User>
+    public AuthService(IUserDao userDao)
     {
-        new User
-        {
-            Username = "Johan",
-            Password = "1234"
-        }
-    };
+        _userDao = userDao;
+    }
     
-    public Task<User> ValidateUser(string username, string password)
+    public async Task<User> ValidateUser(string username, string password)
     {
+        users = await _userDao.GetAllUsersAsync();
         User? existingUser = users.FirstOrDefault(u => 
             u.Username.Equals(username, StringComparison.OrdinalIgnoreCase));
         
@@ -30,32 +30,6 @@ public class AuthService : IAuthService
             throw new Exception("Password mismatch");
         }
 
-        return Task.FromResult(existingUser);
-    }
-
-    public Task<User> GetUser(string username, string password)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task RegisterUser(User user)
-    {
-
-        if (string.IsNullOrEmpty(user.Username))
-        {
-            throw new ValidationException("Username cannot be null");
-        }
-
-        if (string.IsNullOrEmpty(user.Password))
-        {
-            throw new ValidationException("Password cannot be null");
-        }
-        // Do more user info validation here
-        
-        // save to persistence instead of list
-        
-        users.Add(user);
-        
-        return Task.CompletedTask;
+        return existingUser;
     }
 }
