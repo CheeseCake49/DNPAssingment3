@@ -29,7 +29,7 @@ public class PostEFCDao : IPostDao
 
     public async Task<Post> GetByIdAsync(int Id)
     {
-        IEnumerable<Post> posts = _context.Posts;
-        return posts.First(post => post.Id == Id);
+        Console.WriteLine("EFC Reached");
+        return await _context.Posts.FirstOrDefaultAsync(post => post.Id == Id);
     }
 }
